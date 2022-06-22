@@ -3,12 +3,18 @@ package br.com.space.forum.controller.form;
 import br.com.space.forum.modelo.Curso;
 import br.com.space.forum.modelo.Topico;
 import br.com.space.forum.repository.CursoRepository;
+import com.sun.istack.NotNull;
+
+import javax.validation.constraints.NotEmpty;
 
 public class TopicoForm {
     //classe que recebera as info do cliente
 
+    @NotNull @NotEmpty
     private String titulo;
+    @NotNull @NotEmpty
     private String mensagem;
+    @NotNull @NotEmpty
     private String nomeCurso;
 
     public String getTitulo() {
