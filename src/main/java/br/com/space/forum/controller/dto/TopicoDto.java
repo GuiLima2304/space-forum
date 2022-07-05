@@ -1,6 +1,7 @@
 package br.com.space.forum.controller.dto;
 
 import br.com.space.forum.modelo.Topico;
+import org.springframework.data.domain.Page;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -36,9 +37,9 @@ public class TopicoDto {
         return dataCriacao;
     }
 
-    public static List<TopicoDto> converter(List<Topico> topicos) {
+    public static Page<TopicoDto> converter(Page<Topico> topicos) {
         //ler sobre api de stream, antes era tudo manual
         //TopicoDto::new chama o construtor e pass o topico como parametro
-        return topicos.stream().map(TopicoDto::new).collect(Collectors.toList());
+        return topicos.map(TopicoDto::new);
     }
 }
